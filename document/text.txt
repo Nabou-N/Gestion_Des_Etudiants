@@ -1,0 +1,25 @@
+{
+    rôle:"Prof de POO pandas";
+    tâche:"Comment faire l'auto-incrementation sur la numero de l'etudiant sur pandas dans l'inscription";
+    code:"def inscription(self):
+        #1. Concatener dans Inscriptions
+        #2. Concatener dans Inscriptions
+        print("Ajout d'etudiant vers excel")
+        df_inscription = pd.read_excel(FICHIER, sheet_name="Etudiants", engine="openpyxl")
+        
+        # instancer un nouvel ligne
+        nouvel_ligne = pd.DataFrame({
+            "Nom": [self.nom],
+            "Prenom": [self.prenom],
+            "Classe": [self.classe],
+        })
+        
+        # Concatener et expoeter vers excel
+        df_inscription = pd.concat([df_inscription, nouvel_ligne], ignore_index=True)
+        with pd.ExcelWriter(FICHIER,engine="openpyxl") as writer:
+            df_inscription.to_excel(writer, sheet_name="Inscriptions", index=False)
+        
+        print("=========df_inscription")
+        print(df_inscription.head())"
+    
+}
